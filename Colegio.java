@@ -14,11 +14,15 @@ public class Colegio {
         while (!regalos.isEmpty()) {
             String r = regalos.remove();
             Queue<String> cola = alumnos.remove();
-            while (cola.peek() != r) //VEMOS QUE YA HEMOS REPARTIDO A TODOS LOS ALUMNOS 
+            String primero = cola.peek();
+             //VEMOS QUE YA HEMOS REPARTIDO A TODOS LOS ALUMNOS 
+            do
             {
                 String alumno = cola.remove();
                 System.out.println(alumno + r);
+                cola.add(alumno);
             }
+            while (cola.peek() != primero);
 
             alumnos.add(cola);
 
